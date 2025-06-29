@@ -27,7 +27,7 @@ func main() {
 	}
 
 	NewTaskptr := flag.Bool("n", false, "Enter a new Task")
-	ListTaskptr := flag.Bool("l", true, "List All incomplete Tasks")
+	ListTaskptr := flag.Bool("l", false, "List All incomplete Tasks")
 	CmpltTaskptr := flag.Bool("c", false, "Mark A Task As Complete")
 
 	flag.Parse()
@@ -59,6 +59,7 @@ func LoadTodoList() error {
 		f, _ := os.Create("Todo.csv")
 		f.Close()
 	}
+
 	file, err := os.Open("Todo.csv")
 	if err != nil {
 		return err
